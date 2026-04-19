@@ -7,8 +7,8 @@
     <link rel="icon" href="/images/We.ico">
   
   
-  <title>文章归档 | 苦伤道</title>
-  <link rel="canonical" href="https://sith444.github.io/archives/index.html">
+  <title>数学——数论 | 苦伤道</title>
+  <link rel="canonical" href="https://sith444.github.io/2026/04/19/6blog/">
   <meta name="author" content="苦痛" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -17,23 +17,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="博客,苦伤道,学习,生活" />
+    <meta name="keywords" content="数论, 算法" />
   
-  <meta name="description" content="分享学习点滴，记录生活感悟。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章归档">
-<meta property="og:url" content="https://sith444.github.io/archives/index.html">
+  <meta name="description" content="先介绍一下部分常见数论知识点。快速幂+裴蜀定理+扩展欧几里得算法+乘法逆元+费马小定理+线性筛(仅展示部分代码)。 &#x2F;&#x2F;快速幂，p为模数，快速幂常解决a^b%p问题 int qpow(int a,int b)&#123;     int res&#x3D;1;     int a%&#x3D;p;     while(b)&#123;         if(b&amp;1) res&#x3D;(res*a)%p;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学——数论">
+<meta property="og:url" content="https://sith444.github.io/2026/04/19/6blog/index.html">
 <meta property="og:site_name" content="苦伤道">
-<meta property="og:description" content="分享学习点滴，记录生活感悟。">
+<meta property="og:description" content="先介绍一下部分常见数论知识点。快速幂+裴蜀定理+扩展欧几里得算法+乘法逆元+费马小定理+线性筛(仅展示部分代码)。 &#x2F;&#x2F;快速幂，p为模数，快速幂常解决a^b%p问题 int qpow(int a,int b)&#123;     int res&#x3D;1;     int a%&#x3D;p;     while(b)&#123;         if(b&amp;1) res&#x3D;(res*a)%p;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sith444.github.io/images/We.ico">
+<meta property="article:published_time" content="2026-04-19T14:19:41.494Z">
+<meta property="article:modified_time" content="2026-04-19T14:57:57.419Z">
 <meta property="article:author" content="苦痛">
-<meta property="article:tag" content="博客,苦伤道,学习,生活">
+<meta property="article:tag" content="数论">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sith444.github.io/images/We.ico">
   
   <!-- JSON-LD 结构化数据 -->
   
+  
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"数学——数论","description":"先介绍一下部分常见数论知识点。快速幂+裴蜀定理+扩展欧几里得算法+乘法逆元+费马小定理+线性筛(仅展示部分代码)。\n","image":"https://sith444.github.io/images/User.jpg","author":{"@type":"Person","name":"苦痛"},"publisher":{"@type":"Organization","name":"苦伤道","logo":{"@type":"ImageObject","url":"https://sith444.github.io/images/User.jpg"}},"datePublished":"2026-04-19T14:19:41.494Z","dateModified":"2026-04-19T14:57:57.419Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://sith444.github.io/2026/04/19/6blog/"}}
+    </script>
   
   <!-- 关键 CSS 预加载 -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/hexo-theme-kratos-rebirth@3.0.1/source/css/kr-core.min.css" as="style" crossorigin>
@@ -187,189 +194,107 @@
 
         
 
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://sith444.github.io/2026/04/19/6blog/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
             
-<style>
-  .post-meta time{color:#00a7e0}
-  @media (max-width:767px){.posts-collapse{margin:0 20px}
-  .posts-collapse .post-meta,
-  .posts-collapse .post-title{display:block;width:auto;text-align:left}}
-  .posts-collapse{position:relative}
-  .posts-collapse::after{content:" ";position:absolute;top:20px;left:0;margin-left:-2px;width:4px;height:calc(100% - 35px);background:#f5f5f5;z-index:-1}
-  @media (max-width:991px){.posts-collapse{margin:0 20px}}
-  .posts-collapse .collection-title{position:relative}
-  .posts-collapse .collection-title h1,
-  .posts-collapse .collection-title h2{margin-left:20px}
-  .posts-collapse .collection-title small{color:#bbb;margin-left:5px}
-  .posts-collapse .collection-title::before{content:" ";position:absolute;left:0;top:50%;margin-left:-4px;margin-top:-4px;width:8px;height:8px;background:#bbb;border-radius:50%}
-  .posts-collapse .post-header{position:relative;transition-duration:.2s;transition-timing-function:ease-in-out;transition-delay:0s;transition-property:border}
-  .posts-collapse .post-header::before{content:" ";position:absolute;left:0;top:12px;width:6px;height:6px;margin-left:-4px;background:#bbb;border-radius:50%;border:1px solid #fff;transition: all .3s ease-in-out}
-  .posts-collapse .post-header:hover{border-bottom-color:#666}
-  .posts-collapse .post-header:hover::before{background:#222}
-  .posts-collapse .post-meta{position:absolute;font-size:12px;left:20px;top:5px}
-  .posts-collapse .kr-comments-count{display:none}
-  .posts-collapse .post-title{margin-left:70px;font-size:16px;font-weight:400;line-height:inherit}
-  .posts-collapse .post-title::after{margin-left:3px;opacity:.6}
-  .posts-collapse .post-title a{color:#666;border-bottom:none}
-</style>
-
-  <article>
-      <div class="kratos-hentry kratos-page-inner clearfix">
-          <header class="kratos-page-header">
-            <h1 class="kratos-page-title text-center" itemprop="name headline">文章归档</h1>
-          </header>
-          <div class="kratos-page-content kr-archive">
-            <div id="archives">
-              <div class="post-block archive post" style="margin-left: 2em;">
-                <h3 class="archive-page-counter">当前共有 6 篇文章 (゜-゜)つロ 干杯~</h3>
-                <div class="posts-collapse">
-                  
-                  
-                    
-                    
-                      <!-- 没遇到Title的会被自动忽略年份，即使并不一致 -->
-                      
-                      <div class="collection-title">
-                        <a href="/archives/2026/"><h2 class="archive-year">2026</h2></a>
-                      </div>
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2026/04/19/6blog/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">数学——数论</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2026-04-19T14:19:41.494Z">
-                              04-19
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                    
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2026/04/18/5blog/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">杂项——高精度</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2026-04-18T14:32:23.463Z">
-                              04-18
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                    
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2026/04/17/4blog/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">计算几何——二维几何</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2026-04-17T14:36:22.599Z">
-                              04-17
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                    
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2026/04/16/thirdblog/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">计算几何 —— 二维凸包（续）</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2026-04-16T15:10:34.939Z">
-                              04-16
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                    
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2026/04/16/secondblog/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">计算几何 —— 二维凸包</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2026-04-16T05:03:18.483Z">
-                              04-16
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                    
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2026/04/15/firstblog/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">博客初成</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2026-04-15T13:24:13.382Z">
-                              04-15
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                </div>
-              </div>
-            </div>
+                <h1 class="kratos-page-title text-center" itemprop="name headline">数学——数论</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2026-04-19T14:19:41.494Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-04-19</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">苦痛</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            1108
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><p>先介绍一下部分常见数论知识点。<br>快速幂+裴蜀定理+扩展欧几里得算法+乘法逆元+费马小定理+线性筛(仅展示部分代码)。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//快速幂，p为模数，快速幂常解决a^b%p问题</span>
+<span class="token keyword">int</span> <span class="token function">qpow</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> res<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a<span class="token operator">%=</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>b<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> res<span class="token operator">=</span><span class="token punctuation">(</span>res<span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token operator">%</span>p<span class="token punctuation">;</span>
+        a<span class="token operator">=</span><span class="token punctuation">(</span>a<span class="token operator">*</span>a<span class="token punctuation">)</span><span class="token operator">%</span>p<span class="token punctuation">;</span>
+        b<span class="token operator">>>=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//裴蜀定理：对于整数a,b,存在整数x,y使得ax+by=gcd(a,b)，其中gcd为a和b的最大公约数。     对于ax+by=c,存在整数解当且仅当c是gcd(a,b)的倍数。</span>
+<span class="token comment">//扩展欧几里得算法：求不定方程ax+by=c的整数解，或者求ax%p=1的整数解(乘法逆元)。(欧几里得算法求a和b最大公约数)</span>
+<span class="token keyword">void</span> <span class="token function">exgcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>b<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">exgcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    y<span class="token operator">-=</span>a<span class="token operator">/</span>b<span class="token operator">*</span>x<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//乘法逆元：在模意义下，对于整数a和p，如果gcd(a,p)=1，则存在整数x使得ax%p=1，x即为a的乘法逆元。用于解决除法的模。</span>
+<span class="token comment">//费马小定理：p是质数，a^(p-1)≡1(mod p)，可化为a*a^(p-2)≡1(mod p),费马小定理扩展。(这里采用费马小定理求乘法逆元,同时涉及快速幂)</span>
+<span class="token keyword">int</span> <span class="token function">inv</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">qpow</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>p<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//线性筛：筛选质数</span>
+<span class="token keyword">void</span> <span class="token function">sieve</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>vis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            prime<span class="token punctuation">[</span><span class="token operator">++</span>tot<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>tot<span class="token operator">&amp;&amp;</span>i<span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>j<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            vis<span class="token punctuation">[</span>i<span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
         </div>
-      </div>
-      
-  </article>
-
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a>, <a class="tag-none-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-04-19T14:57:57.419Z" itemprop="dateModified">最后编辑：2026-04-19</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 杂项——高精度" href="/2026/04/18/5blog/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+</article>
 
         
 
@@ -380,8 +305,6 @@
 
 <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
     <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
-    
-        <div class="sticky-area">
     
     
                 <aside id="krw-about" class="widget widget-kratos-about clearfix">
@@ -422,6 +345,8 @@
     </div>
 </aside>
             
+                    <div class="sticky-area">
+                
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
