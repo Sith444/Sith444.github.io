@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/We.ico">
   
   
-  <title>图论——最短路 | 苦伤道</title>
+  <title>图论——最短路(1) | 苦伤道</title>
   <link rel="canonical" href="https://sith444.github.io/2026/04/22/8blog/">
   <meta name="author" content="苦痛" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -19,16 +19,16 @@
   
     <meta name="keywords" content="Dijkstra算法, SPFA算法, 单源最短路, 图论, 最短路, 算法" />
   
-  <meta name="description" content="Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化(mlogm),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(SPFA已经死了),可用于负权图。 &#x2F;&#x2F;朴素Dijkstra算法 #include&lt;iostream&gt; #d">
+  <meta name="description" content="Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化O((m+n)logn),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(SPFA已经死了),可用于负权图。 &#x2F;&#x2F;朴素Dijkstra算法 #include&lt;iostrea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图论——最短路">
+<meta property="og:title" content="图论——最短路(1)">
 <meta property="og:url" content="https://sith444.github.io/2026/04/22/8blog/index.html">
 <meta property="og:site_name" content="苦伤道">
-<meta property="og:description" content="Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化(mlogm),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(SPFA已经死了),可用于负权图。 &#x2F;&#x2F;朴素Dijkstra算法 #include&lt;iostream&gt; #d">
+<meta property="og:description" content="Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化O((m+n)logn),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(SPFA已经死了),可用于负权图。 &#x2F;&#x2F;朴素Dijkstra算法 #include&lt;iostrea">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sith444.github.io/images/We.ico">
 <meta property="article:published_time" content="2026-04-22T09:26:28.629Z">
-<meta property="article:modified_time" content="2026-04-22T15:26:44.238Z">
+<meta property="article:modified_time" content="2026-04-23T15:40:44.005Z">
 <meta property="article:author" content="苦痛">
 <meta property="article:tag" content="Dijkstra算法">
 <meta property="article:tag" content="SPFA算法">
@@ -43,7 +43,7 @@
   
   
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"图论——最短路","description":"Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化(mlogm),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(S...","image":"https://sith444.github.io/images/User.jpg","author":{"@type":"Person","name":"苦痛"},"publisher":{"@type":"Organization","name":"苦伤道","logo":{"@type":"ImageObject","url":"https://sith444.github.io/images/User.jpg"}},"datePublished":"2026-04-22T09:26:28.629Z","dateModified":"2026-04-22T15:26:44.238Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://sith444.github.io/2026/04/22/8blog/"}}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"图论——最短路(1)","description":"Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化O((m+n)logn),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n...","image":"https://sith444.github.io/images/User.jpg","author":{"@type":"Person","name":"苦痛"},"publisher":{"@type":"Organization","name":"苦伤道","logo":{"@type":"ImageObject","url":"https://sith444.github.io/images/User.jpg"}},"datePublished":"2026-04-22T09:26:28.629Z","dateModified":"2026-04-23T15:40:44.005Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://sith444.github.io/2026/04/22/8blog/"}}
     </script>
   
   <!-- 关键 CSS 预加载 -->
@@ -203,7 +203,7 @@
     <div class="kratos-hentry kratos-page-inner clearfix">
         <header class="kratos-page-header">
             
-                <h1 class="kratos-page-title text-center" itemprop="name headline">图论——最短路</h1>
+                <h1 class="kratos-page-title text-center" itemprop="name headline">图论——最短路(1)</h1>
             
             <ul class="kratos-page-meta text-center">
                 <li><time datetime="2026-04-22T09:26:28.629Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-04-22</time></li>
@@ -229,7 +229,7 @@
             
             
             <hr />
-            <div itemprop="articleBody"><p>Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化(mlogm),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(SPFA已经死了),可用于负权图。</p>
+            <div itemprop="articleBody"><p>Dijkstra算法主要在非负权图中求最短路，朴素做法O(n^2),堆优化O((m+n)logn),前者在稠密图(m&gt;&#x3D;n^2)中效率较高，后者在稀疏图中效率较高。SPFA算法(Bellman-Ford算法队列优化)在一般情况下效率较高，但在某些特殊情况下可能退化到O(n*m)(SPFA已经死了),可用于负权图。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//朴素Dijkstra算法</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">maxn</span> <span class="token expression"><span class="token number">200500</span></span></span>
@@ -368,7 +368,7 @@
                     <a class="tag-none-link" href="/tags/Dijkstra%E7%AE%97%E6%B3%95/" rel="tag">Dijkstra算法</a>, <a class="tag-none-link" href="/tags/SPFA%E7%AE%97%E6%B3%95/" rel="tag">SPFA算法</a>, <a class="tag-none-link" href="/tags/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">单源最短路</a>, <a class="tag-none-link" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag">图论</a>, <a class="tag-none-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a>, <a class="tag-none-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-04-22T15:26:44.238Z" itemprop="dateModified">最后编辑：2026-04-22</time>
+                    <time datetime="2026-04-23T15:40:44.005Z" itemprop="dateModified">最后编辑：2026-04-23</time>
                 </div>
             </div>
         </footer>
@@ -377,9 +377,13 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 二分" href="/2026/04/20/7blog/"><i class="fa fa-angle-left"></i> 上一篇</a>
+                <a title=" 基本——二分" href="/2026/04/20/7blog/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
+            
+            <div class="nav-next clearfix">
+                <a title=" 图论——最短路(2)" href="/2026/04/23/9blog/">下一篇 <i class="fa fa-angle-right"></i></a>
+            </div>
             
         </nav>
     
@@ -413,7 +417,7 @@
                 文章
             </span>
             <span class="count">
-                8
+                9
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -429,7 +433,7 @@
                 标签
             </span>
             <span class="count">
-                14
+                16
             </span>
         </a>
     </div>
@@ -440,7 +444,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/">程序设计竞赛</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/">程序设计竞赛</a><span class="category-list-count">8</span></li></ul>
   </aside>
 
 
@@ -449,7 +453,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Andrew%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">Andrew算法</a> <a href="/tags/Dijkstra%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">Dijkstra算法</a> <a href="/tags/SPFA%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">SPFA算法</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 0.6em;">二分</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E5%87%A0%E4%BD%95/" style="font-size: 0.6em;">二维几何</a> <a href="/tags/%E5%87%B8%E5%8C%85/" style="font-size: 0.67em;">凸包</a> <a href="/tags/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 0.6em;">单源最短路</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.6em;">图论</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 0.6em;">数论</a> <a href="/tags/%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3/" style="font-size: 0.6em;">旋转卡壳</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 0.6em;">最短路</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.8em;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 0.73em;">计算几何</a> <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/" style="font-size: 0.6em;">高精度</a>
+        <a href="/tags/Andrew%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">Andrew算法</a> <a href="/tags/Dijkstra%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">Dijkstra算法</a> <a href="/tags/Floyd%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">Floyd算法</a> <a href="/tags/SPFA%E7%AE%97%E6%B3%95/" style="font-size: 0.6em;">SPFA算法</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 0.6em;">二分</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E5%87%A0%E4%BD%95/" style="font-size: 0.6em;">二维几何</a> <a href="/tags/%E5%87%B8%E5%8C%85/" style="font-size: 0.67em;">凸包</a> <a href="/tags/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 0.6em;">单源最短路</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.67em;">图论</a> <a href="/tags/%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 0.6em;">多源最短路</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 0.6em;">数论</a> <a href="/tags/%E6%97%8B%E8%BD%AC%E5%8D%A1%E5%A3%B3/" style="font-size: 0.6em;">旋转卡壳</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 0.67em;">最短路</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.8em;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 0.73em;">计算几何</a> <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/" style="font-size: 0.6em;">高精度</a>
       </div>
   </aside>
 
@@ -463,19 +467,25 @@
         
           
           
-            <a class="list-group-item" href="/2026/04/22/8blog/"><i class="fa fa-book"></i> 图论——最短路</a>
+            <a class="list-group-item" href="/2026/04/23/9blog/"><i class="fa fa-book"></i> 图论——最短路(2)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2026/04/20/7blog/"><i class="fa fa-book"></i> 二分</a>
+            <a class="list-group-item" href="/2026/04/22/8blog/"><i class="fa fa-book"></i> 图论——最短路(1)</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2026/04/19/6blog/"><i class="fa fa-book"></i> 数学——数论</a>
+            <a class="list-group-item" href="/2026/04/20/7blog/"><i class="fa fa-book"></i> 基本——二分</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2026/04/19/6blog/"><i class="fa fa-book"></i> 数学——数论(1)</a>
             
           
         
@@ -486,11 +496,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2026/04/17/4blog/"><i class="fa fa-book"></i> 计算几何——二维几何</a>
             
-          
-        
           
             
           
